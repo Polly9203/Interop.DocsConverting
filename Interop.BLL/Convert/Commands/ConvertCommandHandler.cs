@@ -8,9 +8,9 @@ namespace Interop.BLL.Convert.Commands
 
         public async Task<string> Handle(ConvertCommand command, CancellationToken cancellationToken)
         {
-            Application wordApplication = new Application();
+            var wordApplication = new Application();
 
-            string extension = Path.GetExtension(command.OriginalFilePath).ToLower();
+            var extension = Path.GetExtension(command.OriginalFilePath).ToLower();
             var wordDocument = wordApplication.Documents.Add();
 
             if (extension == ".doc" || extension == ".docx")
@@ -19,7 +19,7 @@ namespace Interop.BLL.Convert.Commands
             }
             else
             {
-                string textContent = File.ReadAllText(command.OriginalFilePath);
+                var textContent = await File.ReadAllTextAsync(command.OriginalFilePath);
                 wordDocument.Content.Text = textContent;
             }
 
