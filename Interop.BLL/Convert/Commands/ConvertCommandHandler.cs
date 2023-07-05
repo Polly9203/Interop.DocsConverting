@@ -10,21 +10,31 @@ namespace Interop.BLL.Convert.Commands
         {
             var wordApplication = new Application();
 
-            var extension = Path.GetExtension(command.OriginalFilePath).ToLower();
+            var extension = Path.GetExtension(command.OriginalFile.FileName).ToLower();
             var wordDocument = wordApplication.Documents.Add();
+
+            var tempFilePath = Path.GetTempFileName();
+            using (var fileStream = new FileStream(tempFilePath, FileMode.Create))
+            {
+                await command.OriginalFile.CopyToAsync(fileStream);
+            }
 
             if (extension == ".doc" || extension == ".docx")
             {
-                wordDocument = wordApplication.Documents.Open(command.OriginalFilePath);
+                wordDocument = wordApplication.Documents.Open(tempFilePath);
             }
             else
             {
-                var textContent = await File.ReadAllTextAsync(command.OriginalFilePath);
-                wordDocument.Content.Text = textContent;
+                //var textContent = await File.ReadAllTextAsync(tempFilePath);
+                //wordDocument.Content.Text = textContent;
             }
 
-            var pdfFilePath = Path.ChangeExtension(command.OriginalFilePath, ".pdf");
+            var pdfFilePath = Path.ChangeExtension(command.OriginalFile.FileName, ".pdf");
             wordDocument.ExportAsFixedFormat(pdfFilePath, WdExportFormat.wdExportFormatPDF);
+
+            wordDocument.Close();
+            File.Delete(tempFilePath);
+            wordApplication.Quit();
 
             return pdfFilePath;
         }

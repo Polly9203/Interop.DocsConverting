@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using System.Text.Json.Serialization;
 
 namespace Interop.BLL.Convert.Commands
@@ -6,6 +7,6 @@ namespace Interop.BLL.Convert.Commands
     public class ConvertCommand : IRequest<string>
     {
         [JsonPropertyName("original_file_path")]
-        public string OriginalFilePath { get; set; }
+        public IFormFile OriginalFile { get; set; }
     }
 }
