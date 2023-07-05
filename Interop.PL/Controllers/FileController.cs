@@ -17,9 +17,9 @@ namespace Interop.PL.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<string>> Convert(IFormFile originalFile)
+        public async Task<ActionResult<string>> Convert(IFormFile original_file)
         {
-            var command = new ConvertCommand() {OriginalFile = originalFile};
+            var command = new ConvertCommand() {OriginalFile = original_file};
             var result = await Mediator.Send(command);
             return Ok(result);
         }
