@@ -17,11 +17,10 @@ namespace Interop.PL.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<ActionResult<string>> Convert([FromBody] ConvertCommand command)
         {
             var result = await Mediator.Send(command);
-            return this.Ok($"Pdf file path: {result}");
+            return Ok($"Pdf file path: {result}");
         }
     }
 }
