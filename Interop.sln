@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interop.PL", "Interop.PL\Interop.PL.csproj", "{0C588146-964D-4F2E-A6C0-AF41495596B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{55E0B1FF-3FD1-4715-B313-336E51416BD9} = {55E0B1FF-3FD1-4715-B313-336E51416BD9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.BLL", "Interop.BLL\Interop.BLL.csproj", "{55E0B1FF-3FD1-4715-B313-336E51416BD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C588146-964D-4F2E-A6C0-AF41495596B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C588146-964D-4F2E-A6C0-AF41495596B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C588146-964D-4F2E-A6C0-AF41495596B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C588146-964D-4F2E-A6C0-AF41495596B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55E0B1FF-3FD1-4715-B313-336E51416BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55E0B1FF-3FD1-4715-B313-336E51416BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55E0B1FF-3FD1-4715-B313-336E51416BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55E0B1FF-3FD1-4715-B313-336E51416BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50DC52D0-71AA-484B-9F56-33CFB56DF7F4}
+	EndGlobalSection
+EndGlobal
